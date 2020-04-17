@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zxx">
+{{ $title := site.Title }}
+{{ if not .IsHome }}
+{{ end }}
+<head>
+  <!-- metas -->
+  <meta charset="utf-8">
+  <meta name="author" content="themepaa">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="keywords" content="Tony - Portfolio Template">
+  <meta name="description" content="Tony - Portfolio Template">
+  <!-- title -->
+  <title>{{ $title }}</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <link href="plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="plugin/font-awesome/css/all.min.css" rel="stylesheet">
+  <link href="plugin/et-line/style.css" rel="stylesheet">
+  <link href="plugin/themify-icons/themify-icons.css" rel="stylesheet">
+  <link href="plugin/owl-carousel/css/owl.carousel.min.css" rel="stylesheet">
+  <link href="plugin/magnific/magnific-popup.css" rel="stylesheet">
+  <link href="style/master.css" rel="stylesheet">
+</head>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<link rel="stylesheet" href="css/some-style.css">
+<body>
+<main>
+  {{ block "main" . }}{{ end }}
+</main>
+
+</body>
+</html>

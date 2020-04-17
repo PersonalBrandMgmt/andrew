@@ -1,0 +1,75 @@
+{{ define "main" }}
+<body data-spy="scroll" data-target="#navbar-collapse-toggle" data-offset="70">
+<!-- page loading -->
+<div id="loading">
+  <div class="load-circle"><span class="one"></span></div>
+</div>
+<!-- end page loading -->
+<header>
+  <nav class="navbar header-nav header-dark navbar-expand-lg">
+    <div class="container">
+      <!-- Brand -->
+      <a class="navbar-brand" href="#">Tony <span class="theme-bg"></span></a>
+      <!-- / -->
+
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse-toggle" aria-controls="navbar-collapse-toggle" aria-expanded="false" aria-label="Toggle navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <!-- / -->
+
+      <!-- Top Menu -->
+      <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse-toggle">
+        <ul class="navbar-nav ml-auto">
+          <li><a class="nav-link active" href="#home">Home</a></li>
+          <li><a class="nav-link" href="#about">Resume</a></li>
+          <li><a class="nav-link" href="#services">Services</a></li>
+          <li><a class="nav-link" href="#work">Portfolio</a></li>
+          <li><a class="nav-link" href="#blog">Blog</a></li>
+          <li><a class="nav-link" href="#contactus">Contact</a></li>
+        </ul>
+      </div>
+      <!-- / -->
+
+    </div><!-- Container -->
+  </nav> <!-- Navbar -->
+</header>
+<!-- Main -->
+<main>
+  {{ partial "about.html" }}
+
+  {{ partial "resume.html" }}
+
+  {{ partial "services.html" }}
+
+  {{ partial "portfolio.html" }}
+
+  {{ partial "references.html" }}
+
+  {{ partial "blog.html" }}
+
+  {{ partial "contact.html" }}
+</main>
+<!-- main end -->
+{{ partial "footer.html" }}
+<!-- jquery -->
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery-migrate-3.0.0.min.js"></script>
+<!-- end jquery -->
+<!-- appear -->
+<script src="plugin/appear/jquery.appear.js"></script>
+<!-- end appear -->
+<!--bootstrap-->
+<script src="plugin/bootstrap/js/popper.min.js"></script>
+<script src="plugin/bootstrap/js/bootstrap.js"></script>
+<!--end bootstrap-->
+<!-- End -->
+<!-- custom js -->
+<script src="js/custom.js"></script>
+<script src="js/mail_send.js"></script>
+<!-- end -->
+<!-- end body -->
+</body>
+{{ end }}
