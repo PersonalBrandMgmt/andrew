@@ -29,7 +29,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/layouts/partials" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -39,11 +39,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/static/js" />
       <recent name="$PROJECT_DIR$/layouts/partials" />
       <recent name="$PROJECT_DIR$/static/style" />
       <recent name="$PROJECT_DIR$/static" />
       <recent name="$PROJECT_DIR$/layouts" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index.html">
@@ -82,7 +82,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1587082879029</updated>
-      <workItem from="1587082880565" duration="5406000" />
+      <workItem from="1587082880565" duration="6173000" />
+      <workItem from="1588209647895" duration="301000" />
+      <workItem from="1588443152780" duration="10770000" />
     </task>
     <servers />
   </component>

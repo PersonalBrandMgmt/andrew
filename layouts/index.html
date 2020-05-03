@@ -38,22 +38,22 @@
 </header>
 <!-- Main -->
 <main>
-  {{ partial "about.html" }}
+  {{ partial "about.html" . }}
 
-  {{ partial "resume.html" }}
+  {{ partial "resume.html" . }}
 
-  {{ partial "services.html" }}
+  {{ partial "services.html" . }}
 
-  {{ partial "portfolio.html" }}
+  {{ partial "portfolio.html" . }}
 
-  {{ partial "references.html" }}
+  {{ partial "references.html" . }}
 
-  {{ partial "blog.html" }}
+  {{ partial "blog.html" . }}
 
-  {{ partial "contact.html" }}
+  {{ partial "contact.html" . }}
 </main>
 <!-- main end -->
-{{ partial "footer.html" }}
+{{ partial "footer.html" . }}
 <!-- jquery -->
 <script src="js/jquery-3.2.1.min.js"></script>
 <script src="js/jquery-migrate-3.0.0.min.js"></script>

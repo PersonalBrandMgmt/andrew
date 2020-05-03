@@ -4,19 +4,29 @@
     <div class="row full-screen align-items-center p-100px-tb">
       <div class="col-md-6">
         <div class="ht-text">
-          <h6>Hello there...</h6>
-          <h1>Tony Smith</h1>
-          <h2>I Am Passionate <span id="type-it"></span></h2>
-          <p>The namics of how users interact with interactive elements within a user interface flow chart based on container proportion.</p>
+          <h1>{{ $.Site.Params.first_name }} {{ $.Site.Params.last_name }}</h1>
+          {{ range $.Site.Params.intro }}
+            <p>{{ .content }}</p>
+          {{ end }}
           <div class="btn-bar go-to">
-            <a class="m-btn m-btn-theme" href="#work">my work</a>
-            <a class="m-btn m-btn-t-theme" href="#contactus">Hire Me</a>
+            <a class="m-btn m-btn-theme" href="#work">Resume</a>
+            <a class="m-btn m-btn-t-theme" href="#contactus">Contact</a>
           </div>
         </div>
       </div>
       <div class="col-md-6">
-        <img src="img/about-us.jpg" title="" alt="">
+        {{ range $.Site.Params.assets }}
+          {{ if eq .type "primary" }}
+            <img id="primaryImage" src="{{ .url }}" alt="{{ .metadata }}">
+            <script type="text/javascript">
+              MYLIBRARY.getCdnUrl("primaryImage", "{{ .url }}")
+            </script>
+          {{ end }}
+        {{ end }}
       </div>
+<!--      <div class="col-md-6">-->
+<!--        <img src="img/about-us.jpg" title="" alt="">-->
+<!--      </div>-->
     </div>
   </div>
   <div class="go-to go-to-next">
@@ -27,68 +37,171 @@
 </section>
 <!-- End Home Banner -->
 <!-- about us -->
+<title>Resume</title>
 <section id="about" class="section gray-bg">
   <div class="container">
     <div class="row sm-m-25px-b m-35px-b">
       <div class="col-md-12">
         <div class="section-title">
-          <h3 class="dark-color text-uppercase">ABOUT ME</h3>
-          <p class="text-uppercase small">A Lead UX & UI designer based in Canada</p>
+          <h3 class="dark-color text-uppercase">Resume</h3>
         </div>
       </div>
     </div>
     <div class="row align-items-center">
       <div class="col-lg-5 m-15px-tb">
         <div class="about-me-img box-shadow">
-          <img src="img/about-us.jpg" title="" alt="">
+          {{ range $.Site.Params.assets }}
+            {{ if eq .type "secondary" }}
+              <img id="secondaryImage" src="{{ .url }}" alt="{{ .metadata }}">
+              <script type="text/javascript">
+                MYLIBRARY.getCdnUrl("secondaryImage", "{{ .url }}")
+              </script>
+            {{ end }}
+          {{ end }}
           <div class="nav social-icon">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              {{ range $.Site.Params.socials }}
+                {{ if eq .type "Facebook" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                  {{ end }}
+                  {{ end }}
+                  {{ if eq .type "LinkedIn" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                  {{ end }}
+                  {{ end }}
+                  {{ if eq .type "Instagram" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank"><i class="fab fa-instagram"></i></a>
+                  {{ end }}
+                  {{ end }}
+                  {{ if eq .type "Twitter" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank"><i class="fab fa-twitter"></i></a>
+                  {{ end }}
+                  {{ end }}
+                  {{ if eq .type "Tumblr" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank"><i class="fab fa-tumblr"></i></a>
+                  {{ end }}
+                  {{ end }}
+                  {{ if eq .type "GitHub" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank"><i class="fab fa-github"></i></a>
+                  {{ end }}
+                  {{ end }}
+                  {{ if eq .type "Issuu" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank">issuu</i></a>
+                  {{ end }}
+                  {{ end }}
+                  {{ if eq .type "Medium" }}
+                  {{ if .url }}
+                    <a href="{{ .url }}" target="_blank"><i class="fab fa-medium-m"></i></a>
+                  {{ end }}
+                {{ end }}
+              {{ end }}
           </div>
         </div>
       </div>
       <div class="col-lg-7 m-15px-tb">
         <div class="about-me">
-          <h4>I'M Tony Smith</h4>
-          <h6>A Lead <span class="theme-color">UX & UI</span> designer based in <span class="theme-color">Canada</span></h6>
-          <p>I design and develop services for customers of all sizes, specializing in creating stylish, modern websites, web services and online stores. My passion is to design digital user experiences through the bold interface and meaningful interactions. Check out my Portfolio</p>
           <div class="row about-list">
             <div class="col-md-6">
+              {{ if $.Site.Params.experience }}
               <div class="media">
-                <label>Birthday</label>
-                <p>4th april 1991</p>
+                <label>Professional</label>
+                <p>Founder & Lead Developer, <a href="" target="_blank">Frame</a></p>
               </div>
               <div class="media">
-                <label>Age</label>
-                <p>22 Yr</p>
+                {{ range $.Site.Params.experience }}
+                <label></label>
+                <p>{{ .position }}, <a href="{{ .link }}" target="_blank">{{ .company }}</a></p>
+                {{ end }}
               </div>
-              <div class="media">
-                <label>Residence</label>
-                <p>Canada</p>
-              </div>
-              <div class="media">
-                <label>Address</label>
-                <p>California, USA</p>
-              </div>
+              {{ end }}
+              {{ if $.Site.Params.coursework }}
+                <div class="media">
+                  <label>Coursework</label>
+                  <p>Software Engineering</p>
+                </div>
+                {{ range $.Site.Params.coursework }}
+                <div class="media">
+                  <label></label>
+                  <p>{{ .course_name }}</p>
+                </div>
+                {{ end }}
+              {{ end }}
             </div>
             <div class="col-md-6">
+              {{ if $.Site.Params.leadership }}
               <div class="media">
-                <label>E-mail</label>
-                <p>info@domain.com</p>
+                <label>Leadership</label>
+                <p>Philanthropy Chair, <a href="" target="_blank">Alpha Sig</a></p>
               </div>
               <div class="media">
-                <label>Phone</label>
-                <p>820-885-3321</p>
+                <label></label>
+                {{ range $.Site.Params.leadership }}
+                <p>{{ .position }}, <a href="{{ .link }}" target="_blank">{{ .organization }}</a></p>
+                {{ end }}
+                {{ end }}
+              </div>
+              {{ if $.Site.Params.skills }}
+              <div class="media">
+                <label>Skills</label>
+                <p>ReactJS</p>
+              </div>
+              {{ range $.Site.Params.skills }}
+              <div class="media">
+                <label></label>
+                <p>{{ .content }}</p>
+              </div>
+              {{ end }}
+              {{ end }}
+            </div>
+          </div>
+          <div class="row about-list">
+            <div class="col-md-12">
+              {{ if $.Site.Params.education }}
+              <div class="media">
+                <label>Education</label>
+                <p>Master of Architecture</p>
+              </div>
+              {{ range $.Site.Params.education }}
+              <div class="media">
+                <label></label>
+                <p>{{ .degreeSubtype }}
+                  {{ if .majorTwo }}
+                  {{ if .majorOne }}
+                  in {{ .majorOne }} & {{ .majorTwo }}.
+                  {{ else }}
+                  in {{ .majorTwo }}.
+                  {{ end }}
+                  {{ else if .majorOne }}
+                  in {{ .majorOne }}.
+                  {{ end }}
+                  {{ if .minorTwo }}
+                  {{ if .minorOne }}
+                  Minors in {{ .minorOne }} & {{ .minorTwo }}.
+                  {{ else }}
+                  Minor in {{ .minorTwo }}.
+                  {{ end }}
+                  {{ else if .minorOne }}
+                  Minor in {{ .minorOne }}.
+                  {{ end }}
+                </p>
+              </div>
+              {{ end }}
+              {{ end }}
+            </div>
+            <div class="col-md-12">
+              <div class="media">
+                <label>Certifications</label>
+                <p>AWS Cloud Practitioner</p>
               </div>
               <div class="media">
-                <label>Skype</label>
-                <p>skype.0404</p>
-              </div>
-              <div class="media">
-                <label>Freelance</label>
-                <p>Available</p>
+                <label></label>
+                <p>Google Analytics</p>
               </div>
             </div>
           </div>

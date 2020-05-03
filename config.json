@@ -1,7 +1,190 @@
 {
-  "baseURL": "https://develop.d2pru1nc16cre5.amplifyapp.com/",
   "languageCode": "en-us",
-  "title": "Andrew Peña",
-  "disableKinds": ["taxonomy", "taxonomyTerm"],
-  "params": {}
+  "title": "Kieran Derfus",
+  "params": {
+    "first_name": "Kieran",
+    "last_name": "Derfus",
+    "middleInitial": "CY",
+    "lastInitial": "PG",
+    "email": "kderfus@gmail.com",
+    "site_metadata": [
+      {
+        "id": "c436e016-7f5c-43a9-842b-5abc98ea647e",
+        "development_url": "https://develop.d2hkjn38d1o54x.amplifyapp.com",
+        "production_url": "https://master.d2hkjn38d1o54x.amplifyapp.com",
+        "theme": "noah",
+        "appId": "d2hkjn38d1o54x",
+        "repoUrl": "https://github.com/PersonalBrandMgmt/98aba832-d181-47b9-9f75-7f5e44e8ebb1"
+      }
+    ],
+    "assets": [
+      {
+        "type": "primary",
+        "url": "66403658-5eca-456a-8eaa-a97af2c6fcf2",
+        "id": "52851819-7bb1-4bf2-962b-0f8325c630bf"
+      },
+      {
+        "type": "secondary",
+        "url": "66403658-5eca-456a-8eaa-a97af2c6fcf2",
+        "id": "52851819-7bb1-4bf2-962b-0f8325c630bf"
+      }
+    ],
+    "coursework": [
+      {
+        "id": "f0b5a7eb-4530-4b0c-9116-222494c14ed3",
+        "course_name": "Linear Algebra"
+      },
+      {
+        "id": "03059b14-8e0e-4c56-8af5-2f348e3bf88d",
+        "course_name": "Macroeconomics"
+      },
+      {
+        "id": "03059b14-8e0e-4c56-8af5-2f348e3bf88r",
+        "course_name": "Data Structures & Algorithms"
+      }
+    ],
+    "leadership": [
+      {
+        "position": "President",
+        "organization": "Plead the Fifth",
+        "link": "https://pleadthefifthwfu.com",
+        "id": "c2428bd4-e4b6-4bbf-8a4e-c4add2dd2665",
+        "start_date": "2016-02",
+        "end_date": "Present"
+      }
+    ],
+    "references": [
+      {
+        "content":  "Kieran has been a great addition to the team.",
+        "author_name": "Fazir Manthodi",
+        "author_company": "EY",
+        "author_position": "Managing Director"
+      },
+      {
+        "content":  "Kieran has been a great addition to the team.",
+        "author_name": "Surajit Das",
+        "author_company": "EY",
+        "author_position": "Managing Director"
+      }
+    ],
+    "skills": [
+      {
+        "content": "JavaScript",
+        "id": "dc984b7d-faeb-400e-8666-8e4df459a3c8"
+      },
+      {
+        "content": "Python",
+        "id": "348a1008-adc1-443b-af77-b431d66f2591"
+      },
+      {
+        "content": "Product Management",
+        "id": "ddb16ab9-3202-48bb-8ab5-f7f998b1b298"
+      }
+    ],
+    "education": [
+      {
+        "id": "e144b643-dee6-49c5-9229-b2b7e7b1b7c6",
+        "degreeType": "Bachelor's Degree",
+        "degreeSubtype": "Bachelor of Science (B.S.)",
+        "majorOne": "Computer Science",
+        "majorTwo": "Economics",
+        "minorOne": null,
+        "minorTwo": null,
+        "graduationDate": null
+      }
+    ],
+    "experience": [
+      {
+        "position": "Senior Consultant",
+        "company": "EY",
+        "link": "https://ey.com/consulting",
+        "start_date": "2018-10",
+        "end_date": "Present",
+        "id": "269ddf15-b822-4397-9c47-d6c3fff2ad90"
+      }
+    ],
+    "articles": [
+      {
+        "title": "Motorola Razr vs. Samsung Galaxy Z Flip",
+        "caption": "The Flip Phone Is Back and It’s Not a Total Flop.",
+        "url": "https://www.wsj.com/articles/motorola-razr-vs-samsung-galaxy-z-flip-the-flip-phone-is-back-and-its-not-a-total-flop-11581742810?mod=hp_lead_pos7",
+        "id": "b122967b-c174-4262-9555-d5802643fe9c"
+      },
+      {
+        "title": "Motorola Razr vs. Samsung Galaxy Z Flip",
+        "caption": "The Flip Phone Is Back and It’s Not a Total Flop.",
+        "url": "https://www.wsj.com/articles/motorola-razr-vs-samsung-galaxy-z-flip-the-flip-phone-is-back-and-its-not-a-total-flop-11581742810?mod=hp_lead_pos7",
+        "id": "b122967b-c174-4262-9555-d5802643fe9c"
+      },
+      {
+        "title": "Motorola Razr vs. Samsung Galaxy Z Flip",
+        "caption": "The Flip Phone Is Back and It’s Not a Total Flop.",
+        "url": "https://www.wsj.com/articles/motorola-razr-vs-samsung-galaxy-z-flip-the-flip-phone-is-back-and-its-not-a-total-flop-11581742810?mod=hp_lead_pos7",
+        "id": "b122967b-c174-4262-9555-d5802643fe9c"
+      },
+      {
+        "title": "Motorola Razr vs. Samsung Galaxy Z Flip",
+        "caption": "The Flip Phone Is Back and It’s Not a Total Flop.",
+        "url": "https://www.wsj.com/articles/motorola-razr-vs-samsung-galaxy-z-flip-the-flip-phone-is-back-and-its-not-a-total-flop-11581742810?mod=hp_lead_pos7",
+        "id": "b122967b-c174-4262-9555-d5802643fe9c"
+      },
+      {
+        "title": "Motorola Razr vs. Samsung Galaxy Z Flip",
+        "caption": "The Flip Phone Is Back and It’s Not a Total Flop.",
+        "url": "https://www.wsj.com/articles/motorola-razr-vs-samsung-galaxy-z-flip-the-flip-phone-is-back-and-its-not-a-total-flop-11581742810?mod=hp_lead_pos7",
+        "id": "b122967b-c174-4262-9555-d5802643fe9c"
+      },
+      {
+        "title": "Motorola Razr vs. Samsung Galaxy Z Flip",
+        "caption": "The Flip Phone Is Back and It’s Not a Total Flop.",
+        "url": "https://www.wsj.com/articles/motorola-razr-vs-samsung-galaxy-z-flip-the-flip-phone-is-back-and-its-not-a-total-flop-11581742810?mod=hp_lead_pos7",
+        "id": "b122967b-c174-4262-9555-d5802643fe9c"
+      }
+    ],
+    "intro": [
+      {
+        "content": "Ever since I heard the howling wind ... I didn't need to go where a bible went. Ever since I heard the howling wind ... I didn't need to go where a bible went.",
+        "account_id": "c436e016-7f5c-43a9-842b-5abc98ea647e",
+        "id": "e8363efc-10f5-48a3-8434-d68c8fa0397d"
+      }
+    ],
+    "socials": [
+      {
+        "type": "Instagram",
+        "url": "https://instagram.com/kieranderfus",
+        "id": "8dcc33ae-de5d-4b4e-945b-79f0b549d1d2"
+      },
+      {
+        "type": "Facebook",
+        "url": "https://instagram.com/kieranderfus",
+        "id": "8dcc33ae-de5d-4b4e-945b-79f0b549d1d2"
+      },
+      {
+        "type": "LinkedIn",
+        "url": "https://instagram.com/kieranderfus",
+        "id": "8dcc33ae-de5d-4b4e-945b-79f0b549d1d2"
+      },
+      {
+        "type": "Twitter",
+        "url": "https://instagram.com/kieranderfus",
+        "id": "8dcc33ae-de5d-4b4e-945b-79f0b549d1d2"
+      },
+      {
+        "type": "GitHub",
+        "url": "https://instagram.com/kieranderfus",
+        "id": "8dcc33ae-de5d-4b4e-945b-79f0b549d1d2"
+      },
+      {
+        "type": "Tumblr",
+        "url": "https://instagram.com/kieranderfus",
+        "id": "8dcc33ae-de5d-4b4e-945b-79f0b549d1d2"
+      },
+      {
+        "type": "Medium",
+        "url": "https://instagram.com/kieranderfus",
+        "id": "8dcc33ae-de5d-4b4e-945b-79f0b549d1d2"
+      }
+    ],
+    "posts": []
+  }
 }
