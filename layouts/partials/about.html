@@ -4,13 +4,21 @@
     <div class="row full-screen align-items-center p-100px-tb">
       <div class="col-md-6">
         <div class="ht-text">
-          <h1>{{ $.Site.Params.first_name }} {{ $.Site.Params.last_name }}</h1>
+          <h1>{{ $.Site.Params.first_name }}<br/>{{ $.Site.Params.last_name }}</h1>
           {{ range $.Site.Params.intro }}
             <p>{{ .content }}</p>
           {{ end }}
           <div class="btn-bar go-to">
-            <a class="m-btn m-btn-theme" href="#work">Resume</a>
-            <a class="m-btn m-btn-t-theme" href="#contactus">Contact</a>
+            {{ if or ( or ($.Site.Params.experience) ($.Site.Params.education) ) ($.Site.Params.coursework) }}
+              <a class="m-btn m-btn-theme" href="#about">Resume</a>
+            {{ else }}
+              {{ range $.Site.Params.assets }}
+                {{ if eq .type "resume" }}
+                  <a class="m-btn m-btn-theme" href="https://pbmgmt-resumes.s3.amazonaws.com/{{ .url }}" target="_blank">Resume</a>
+                {{ end }}
+              {{ end }}
+            {{ end }}
+            <a class="m-btn m-btn-t-theme" href="mailto:{{ $.Site.Params.email }}">Contact</a>
           </div>
         </div>
       </div>
@@ -24,9 +32,6 @@
           {{ end }}
         {{ end }}
       </div>
-<!--      <div class="col-md-6">-->
-<!--        <img src="img/about-us.jpg" title="" alt="">-->
-<!--      </div>-->
     </div>
   </div>
   <div class="go-to go-to-next">
@@ -36,181 +41,3 @@
   </div>
 </section>
 <!-- End Home Banner -->
-<!-- about us -->
-<title>Resume</title>
-<section id="about" class="section gray-bg">
-  <div class="container">
-    <div class="row sm-m-25px-b m-35px-b">
-      <div class="col-md-12">
-        <div class="section-title">
-          <h3 class="dark-color text-uppercase">Resume</h3>
-        </div>
-      </div>
-    </div>
-    <div class="row align-items-center">
-      <div class="col-lg-5 m-15px-tb">
-        <div class="about-me-img box-shadow">
-          {{ range $.Site.Params.assets }}
-            {{ if eq .type "secondary" }}
-              <img id="secondaryImage" src="{{ .url }}" alt="{{ .metadata }}">
-              <script type="text/javascript">
-                MYLIBRARY.getCdnUrl("secondaryImage", "{{ .url }}")
-              </script>
-            {{ end }}
-          {{ end }}
-          <div class="nav social-icon">
-              {{ range $.Site.Params.socials }}
-                {{ if eq .type "Facebook" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                  {{ end }}
-                  {{ end }}
-                  {{ if eq .type "LinkedIn" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                  {{ end }}
-                  {{ end }}
-                  {{ if eq .type "Instagram" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank"><i class="fab fa-instagram"></i></a>
-                  {{ end }}
-                  {{ end }}
-                  {{ if eq .type "Twitter" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank"><i class="fab fa-twitter"></i></a>
-                  {{ end }}
-                  {{ end }}
-                  {{ if eq .type "Tumblr" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank"><i class="fab fa-tumblr"></i></a>
-                  {{ end }}
-                  {{ end }}
-                  {{ if eq .type "GitHub" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank"><i class="fab fa-github"></i></a>
-                  {{ end }}
-                  {{ end }}
-                  {{ if eq .type "Issuu" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank">issuu</i></a>
-                  {{ end }}
-                  {{ end }}
-                  {{ if eq .type "Medium" }}
-                  {{ if .url }}
-                    <a href="{{ .url }}" target="_blank"><i class="fab fa-medium-m"></i></a>
-                  {{ end }}
-                {{ end }}
-              {{ end }}
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-7 m-15px-tb">
-        <div class="about-me">
-          <div class="row about-list">
-            <div class="col-md-6">
-              {{ if $.Site.Params.experience }}
-              <div class="media">
-                <label>Professional</label>
-                <p>Founder & Lead Developer, <a href="" target="_blank">Frame</a></p>
-              </div>
-              <div class="media">
-                {{ range $.Site.Params.experience }}
-                <label></label>
-                <p>{{ .position }}, <a href="{{ .link }}" target="_blank">{{ .company }}</a></p>
-                {{ end }}
-              </div>
-              {{ end }}
-              {{ if $.Site.Params.coursework }}
-                <div class="media">
-                  <label>Coursework</label>
-                  <p>Software Engineering</p>
-                </div>
-                {{ range $.Site.Params.coursework }}
-                <div class="media">
-                  <label></label>
-                  <p>{{ .course_name }}</p>
-                </div>
-                {{ end }}
-              {{ end }}
-            </div>
-            <div class="col-md-6">
-              {{ if $.Site.Params.leadership }}
-              <div class="media">
-                <label>Leadership</label>
-                <p>Philanthropy Chair, <a href="" target="_blank">Alpha Sig</a></p>
-              </div>
-              <div class="media">
-                <label></label>
-                {{ range $.Site.Params.leadership }}
-                <p>{{ .position }}, <a href="{{ .link }}" target="_blank">{{ .organization }}</a></p>
-                {{ end }}
-                {{ end }}
-              </div>
-              {{ if $.Site.Params.skills }}
-              <div class="media">
-                <label>Skills</label>
-                <p>ReactJS</p>
-              </div>
-              {{ range $.Site.Params.skills }}
-              <div class="media">
-                <label></label>
-                <p>{{ .content }}</p>
-              </div>
-              {{ end }}
-              {{ end }}
-            </div>
-          </div>
-          <div class="row about-list">
-            <div class="col-md-12">
-              {{ if $.Site.Params.education }}
-              <div class="media">
-                <label>Education</label>
-                <p>Master of Architecture</p>
-              </div>
-              {{ range $.Site.Params.education }}
-              <div class="media">
-                <label></label>
-                <p>{{ .degreeSubtype }}
-                  {{ if .majorTwo }}
-                  {{ if .majorOne }}
-                  in {{ .majorOne }} & {{ .majorTwo }}.
-                  {{ else }}
-                  in {{ .majorTwo }}.
-                  {{ end }}
-                  {{ else if .majorOne }}
-                  in {{ .majorOne }}.
-                  {{ end }}
-                  {{ if .minorTwo }}
-                  {{ if .minorOne }}
-                  Minors in {{ .minorOne }} & {{ .minorTwo }}.
-                  {{ else }}
-                  Minor in {{ .minorTwo }}.
-                  {{ end }}
-                  {{ else if .minorOne }}
-                  Minor in {{ .minorOne }}.
-                  {{ end }}
-                </p>
-              </div>
-              {{ end }}
-              {{ end }}
-            </div>
-            <div class="col-md-12">
-              <div class="media">
-                <label>Certifications</label>
-                <p>AWS Cloud Practitioner</p>
-              </div>
-              <div class="media">
-                <label></label>
-                <p>Google Analytics</p>
-              </div>
-            </div>
-          </div>
-          <div class="btn-bar">
-            <a class="m-btn m-btn-theme" href="#work">Download CV</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- end about us -->

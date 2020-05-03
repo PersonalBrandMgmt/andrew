@@ -9,7 +9,7 @@
   <nav class="navbar header-nav header-dark navbar-expand-lg">
     <div class="container">
       <!-- Brand -->
-      <a class="navbar-brand" href="#">Tony <span class="theme-bg"></span></a>
+      <a class="navbar-brand" href="#">{{ .Site.Params.first_name }} {{ .Site.Params.last_name }}<span class="theme-bg"></span></a>
       <!-- / -->
 
       <!-- Mobile Toggle -->
@@ -24,11 +24,22 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbar-collapse-toggle">
         <ul class="navbar-nav ml-auto">
           <li><a class="nav-link active" href="#home">Home</a></li>
+          {{ if or ( or ($.Site.Params.experience) ($.Site.Params.education) ) ($.Site.Params.coursework) }}
           <li><a class="nav-link" href="#about">Resume</a></li>
-          <li><a class="nav-link" href="#services">Services</a></li>
-          <li><a class="nav-link" href="#work">Portfolio</a></li>
-          <li><a class="nav-link" href="#blog">Blog</a></li>
-          <li><a class="nav-link" href="#contactus">Contact</a></li>
+          {{ else }}
+            {{ range $.Site.Params.assets }}
+              {{ if eq .type "resume" }}
+                <li><a class="nav-link" href="https://pbmgmt-resumes.s3.amazonaws.com/{{ .url }}" target="_blank">Resume</a></li>
+              {{ end }}
+            {{ end }}
+          {{ end }}
+          {{ if .Site.Params.articles }}
+            <li><a class="nav-link" href="#blog">Articles</a></li>
+          {{ end }}
+          {{ if .Site.Params.references }}
+          <li><a class="nav-link" href="#references">References</a></li>
+          {{ end }}
+<!--          <li><a class="nav-link" href="#contactus">Contact</a></li>-->
         </ul>
       </div>
       <!-- / -->
@@ -42,15 +53,9 @@
 
   {{ partial "resume.html" . }}
 
-  {{ partial "services.html" . }}
-
-  {{ partial "portfolio.html" . }}
-
-  {{ partial "references.html" . }}
-
   {{ partial "blog.html" . }}
 
-  {{ partial "contact.html" . }}
+  {{ partial "references.html" . }}
 </main>
 <!-- main end -->
 {{ partial "footer.html" . }}

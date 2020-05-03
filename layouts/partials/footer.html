@@ -4,15 +4,52 @@
     <div class="row align-items-center">
       <div class="col-md-6 m-10px-tb">
         <div class="nav justify-content-center justify-content-md-stasrt">
-          <a href="#"><i class="fab fa-facebook-f"></i></a>
-          <a href="#"><i class="fab fa-twitter"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#"><i class="fab fa-pinterest"></i></a>
+          {{ range $.Site.Params.socials }}
+          {{ if eq .type "Facebook" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          {{ end }}
+          {{ end }}
+          {{ if eq .type "LinkedIn" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          {{ end }}
+          {{ end }}
+          {{ if eq .type "Instagram" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank"><i class="fab fa-instagram"></i></a>
+          {{ end }}
+          {{ end }}
+          {{ if eq .type "Twitter" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank"><i class="fab fa-twitter"></i></a>
+          {{ end }}
+          {{ end }}
+          {{ if eq .type "Tumblr" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank"><i class="fab fa-tumblr"></i></a>
+          {{ end }}
+          {{ end }}
+          {{ if eq .type "GitHub" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank"><i class="fab fa-github"></i></a>
+          {{ end }}
+          {{ end }}
+          {{ if eq .type "Issuu" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank">issuu</i></a>
+          {{ end }}
+          {{ end }}
+          {{ if eq .type "Medium" }}
+          {{ if .url }}
+          <a href="{{ .url }}" target="_blank"><i class="fab fa-medium-m"></i></a>
+          {{ end }}
+          {{ end }}
+          {{ end }}
         </div>
       </div>
       <div class="col-md-6 m-10px-tb text-center text-md-right">
-        <p>© 2019 copyright all right reserved</p>
+        <p>© Frame 2020. All Rights Reserved.</p>
       </div>
     </div>
   </div>

@@ -1,6 +1,6 @@
 {{ if $.Site.Params.references }}
 <!-- References -->
-<section class="section gray-bg">
+<section id="references" class="section gray-bg">
   <div class="container">
     <div class="row sm-m-25px-b m-35px-b">
       <div class="col-md-12">
@@ -17,9 +17,6 @@
           {{ range $.Site.Params.references }}
             <div class="testimonial-col-01">
               <div class="media">
-                <div class="img">
-                  <img src="img/avatra-1.jpg" title="" alt="">
-                </div>
                 <div class="media-body p-25px-l">
                   <p>{{ .content }}</p>
                   <div class="tc-info">

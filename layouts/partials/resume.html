@@ -1,102 +1,211 @@
-<!-- Resume -->
-<section class="section">
+{{ if or ( or ($.Site.Params.experience) ($.Site.Params.education) ) ($.Site.Params.coursework) }}
+<title>Resume</title>
+<section id="about" class="section gray-bg">
   <div class="container">
     <div class="row sm-m-25px-b m-35px-b">
       <div class="col-md-12">
         <div class="section-title">
-          <h3 class="dark-color text-uppercase">My Skills</h3>
-          <p class="text-uppercase small">A Lead UX &amp; UI designer based in Canada</p>
+          <h3 class="dark-color text-uppercase">Resume</h3>
         </div>
       </div>
     </div>
-    <div class="row justify-content-between">
-      <div class="col-lg-6 m-15px-tb">
-        <!-- skill -->
-        <div class="skill-lt">
-          <h6 class="dark-color">HTML5</h6>
-          <div class="skill-bar">
-            <div class="skill-bar-in theme-bg" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100">
-              <span>92%</span>
-            </div>
-          </div>
-        </div>
-        <!-- end skill -->
-        <!-- skill -->
-        <div class="skill-lt">
-          <h6 class="dark-color">WordPress</h6>
-          <div class="skill-bar">
-            <div class="skill-bar-in theme-bg" role="progressbar" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100">
-              <span>75%</span>
-            </div>
-          </div>
-        </div>
-        <!-- end skill -->
-        <!-- skill -->
-        <div class="skill-lt">
-          <h6 class="dark-color">Magento</h6>
-          <div class="skill-bar">
-            <div class="skill-bar-in theme-bg" role="progressbar" aria-valuenow="86" aria-valuemin="0" aria-valuemax="100">
-              <span>86%</span>
-            </div>
-          </div>
-        </div><!-- /skill -->
-        <!-- end skill -->
-        <!-- skill -->
-        <div class="skill-lt">
-          <h6 class="dark-color">UI/UX</h6>
-          <div class="skill-bar">
-            <div class="skill-bar-in theme-bg" role="progressbar" aria-valuenow="88" aria-valuemin="0" aria-valuemax="100">
-              <span>88%</span>
-            </div>
-          </div>
-        </div>
-        <!-- end skill -->
-      </div>
+    <div class="row align-items-center">
       <div class="col-lg-5 m-15px-tb">
-        <div class="row">
-          <div class="col-6 m-15px-tb">
-            <div class="feature-box-2 media align-items-center">
-              <div class="icon">
-                <i class="fas fa-compact-disc"></i>
+        <div class="about-me-img box-shadow">
+          {{ range $.Site.Params.assets }}
+          {{ if eq .type "secondary" }}
+          <img id="secondaryImage" src="{{ .url }}" alt="{{ .metadata }}">
+          <script type="text/javascript">
+            MYLIBRARY.getCdnUrl("secondaryImage", "{{ .url }}")
+          </script>
+          {{ end }}
+          {{ end }}
+          <div class="nav social-icon">
+            {{ range $.Site.Params.socials }}
+            {{ if eq .type "Facebook" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            {{ end }}
+            {{ end }}
+            {{ if eq .type "LinkedIn" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            {{ end }}
+            {{ end }}
+            {{ if eq .type "Instagram" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank"><i class="fab fa-instagram"></i></a>
+            {{ end }}
+            {{ end }}
+            {{ if eq .type "Twitter" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank"><i class="fab fa-twitter"></i></a>
+            {{ end }}
+            {{ end }}
+            {{ if eq .type "Tumblr" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank"><i class="fab fa-tumblr"></i></a>
+            {{ end }}
+            {{ end }}
+            {{ if eq .type "GitHub" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank"><i class="fab fa-github"></i></a>
+            {{ end }}
+            {{ end }}
+            {{ if eq .type "Issuu" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank">issuu</i></a>
+            {{ end }}
+            {{ end }}
+            {{ if eq .type "Medium" }}
+            {{ if .url }}
+            <a href="{{ .url }}" target="_blank"><i class="fab fa-medium-m"></i></a>
+            {{ end }}
+            {{ end }}
+            {{ end }}
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 m-15px-tb">
+        <div class="about-me">
+          <div class="row about-list">
+            <div class="col-md-6">
+              {{ if $.Site.Params.experience }}
+              <div class="media">
+                <label>Experience</label>
               </div>
-              <div class="media-body">
-                <h5>80 Albumes Listened</h5>
+              <div>
+                <ul>
+                  {{ range $.Site.Params.experience }}
+                  <li>
+                    {{ .position }}, <a href="{{ .link }}" target="_blank">{{ .company }}</a>
+                    <br/>
+                    <i>
+                      {{ substr .start_date 0 -3 }} -
+                      {{ if eq .end_date "Present" }}
+                      Present
+                      {{ else }}
+                      '{{ substr .end_date 0 -3 }}
+                      {{ end }}
+                    </i>
+                  </li>
+                  {{ end }}
+                </ul>
               </div>
+              {{ end }}
+              {{ if $.Site.Params.coursework }}
+              <div class="media">
+                <label>Coursework</label>
+              </div>
+              <div>
+                <ul>
+                  {{ range $.Site.Params.coursework }}
+                  <li>{{ .course_name }}</li>
+                  {{ end }}
+                </ul>
+              </div>
+              {{ end }}
+            </div>
+            <div class="col-md-6">
+              {{ if $.Site.Params.leadership }}
+              <div class="media">
+                <label>Leadership</label>
+              </div>
+              <div>
+                <ul>
+                  {{ range $.Site.Params.leadership }}
+                  <li>{{ .position }}, <a href="{{ .link }}" target="_blank">{{ .organization }}</a>
+                    <br/>
+                    <i>
+                      {{ substr .start_date 0 -3 }} -
+                      {{ if eq .end_date "Present" }}
+                      Present
+                      {{ else }}
+                      '{{ substr .end_date 0 -3 }}
+                      {{ end }}
+                    </i>
+                  </li>
+                  {{ end }}
+                </ul>
+              </div>
+              {{ end }}
+              {{ if $.Site.Params.skills }}
+              <div class="media">
+                <label>Skills</label>
+              </div>
+              <div>
+                <ul>
+                  {{ range $.Site.Params.skills }}
+                  <li>{{ .content }}</li>
+                  {{ end }}
+                </ul>
+              </div>
+              {{ end }}
             </div>
           </div>
-          <div class="col-6 m-15px-tb">
-            <div class="feature-box-2 media align-items-center">
-              <div class="icon">
-                <i class="fas fa-trophy"></i>
+          <div class="row about-list">
+            <div class="col-md-12">
+              {{ if $.Site.Params.education }}
+              <div class="media">
+                <label>Education</label>
               </div>
-              <div class="media-body">
-                <h5>15 Awards Won</h5>
+              <div>
+                <ul>
+                  {{ range $.Site.Params.education }}
+                  <li>{{ .degreeSubtype }}
+                    {{ if .majorTwo }}
+                    {{ if .majorOne }}
+                    in {{ .majorOne }} & {{ .majorTwo }}.
+                    {{ else }}
+                    in {{ .majorTwo }}.
+                    {{ end }}
+                    {{ else if .majorOne }}
+                    in {{ .majorOne }}.
+                    {{ end }}
+                    {{ if .minorTwo }}
+                    {{ if .minorOne }}
+                    Minors in {{ .minorOne }} & {{ .minorTwo }}.
+                    {{ else }}
+                    Minor in {{ .minorTwo }}.
+                    {{ end }}
+                    {{ else if .minorOne }}
+                    Minor in {{ .minorOne }}.
+                    {{ end }}
+                  </li>
+                  {{ end }}
+                </ul>
+              </div>
+              {{ end }}
+            </div>
+            {{ if $.Site.Params.certifications }}
+            <div class="col-md-12">
+              <div class="media">
+                <label>Certifications</label>
+              </div>
+              <div>
+                <ul>
+                  {{ range $.Site.Params.certifications }}
+                  <li>
+                    {{ .content }}
+                  </li>
+                  {{ end }}
+                </ul>
+                <label></label>
               </div>
             </div>
+            {{ end }}
           </div>
-          <div class="col-6 m-15px-tb">
-            <div class="feature-box-2 media align-items-center">
-              <div class="icon">
-                <i class="fas fa-mug-hot"></i>
+          {{ range $.Site.Params.assets }}
+            {{ if eq .type "resume" }}
+              <div class="btn-bar">
+                <a class="m-btn m-btn-theme" href="https://pbmgmt-resumes.s3.amazonaws.com/{{ .url }}" target="_blank">Download Resume</a>
               </div>
-              <div class="media-body">
-                <h5>1 000 Cups of coffee</h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 m-15px-tb">
-            <div class="feature-box-2 media align-items-center">
-              <div class="icon">
-                <i class="fas fa-flag"></i>
-              </div>
-              <div class="media-body">
-                <h5>10 Countries Visited</h5>
-              </div>
-            </div>
-          </div>
+            {{ end }}
+          {{ end }}
         </div>
       </div>
     </div>
   </div>
 </section>
-<!-- Resume -->
+{{ end }}
+<!-- end about us -->
